@@ -64,7 +64,8 @@
       const icon = document.getElementById('status-icon');
 
       if (data.online) {
-        statusDiv.textContent = "Online";
+        const players = data.players?.online ?? 0;
+        statusDiv.textContent = `Online — ${players} player${players !== 1 ? 's' : ''}`;
         statusDiv.classList.add("online");
         statusDiv.classList.remove("offline");
         icon.classList.add("online");
@@ -79,7 +80,7 @@
     }
 
     checkStatus();
-    setInterval(checkStatus, 30000); // يحدث الحالة كل 30 ثانية
+    setInterval(checkStatus, 20000); // يحدث الحالة كل 30 ثانية
   </script>
 </body>
 </html>
